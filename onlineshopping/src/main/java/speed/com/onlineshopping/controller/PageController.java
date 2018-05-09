@@ -8,9 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
-	static {
-		System.out.println("Hello");
-	}
+	
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
@@ -36,9 +34,9 @@ public class PageController {
 		return mv;
 
 	}
-	*/
 	
-	/*using @PathVariable*/
+	/*ony use anyone
+	using @PathVariable ony use anyone
 	@RequestMapping(value="/test/{greeting}")
 	public ModelAndView test(@PathVariable("greeting")String greeting) { //access the only value by url/path
 
@@ -53,5 +51,5 @@ public class PageController {
 		mv.addObject("greeting", greeting);
 		return mv;
 
-	}
+	}*/
 }

@@ -23,8 +23,16 @@
 
 <title>online shopping - ${title}</title>
 
+<script>
+	window.menu = '${title}';
+</script>
+
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Bootstrap litera Theme -->
+<link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -32,41 +40,51 @@
 </head>
 
 <body>
+	<div class="wrapper">
 
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
 
-	<!-- Page Content -->
-	<!-- loading home content -->
-	
-	<c:if test="${userClickHome == true }">
-		<%@include file="home.jsp"%>
-	</c:if>
-	
-<!-- 	loading when user clicks about u -->
-	<c:if test="${userClickAbout == true }">
-		<%@include file="about.jsp"%>
-	</c:if>
+		<!-- Page Content -->
+		
+		<div class="content">
+		
+		<!-- loading home content -->
+			<c:if test="${userClickHome == true }">
+				<%@include file="home.jsp"%>
+			</c:if>
 
-	
-<!-- 	loading when user clicks contact-->
-	<c:if test="${userClickContact == true }">
-		<%@include file="contact.jsp"%>
-	</c:if>
-
-	<!-- Footer -->
-	<%@include file="./shared/footer.jsp"%>
-
-	<!-- jQuery -->
-
-	<script src="${js}/jquery.js"></script>
-
-	<!-- Bootstrap core JavaScript -->
+			<!-- 	loading when user clicks about u -->
+			<c:if test="${userClickAbout == true }">
+				<%@include file="about.jsp"%>
+			</c:if>
 
 
+			<!-- 	loading when user clicks contact-->
+			<c:if test="${userClickContact == true }">
+				<%@include file="contact.jsp"%>
+			</c:if>
 
-	<script src="${js}/bootstrap.min.js"></script>
+	<!-- 	loading when user clicks contact-->
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
 
+		</div>
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
+
+		<!-- jQuery -->
+
+		<script src="${js}/jquery.js"></script>
+
+		<!-- Bootstrap core JavaScript -->
+
+		<script src="${js}/bootstrap.min.js"></script>
+
+		<!-- self coded javascript -->
+		<script src="${js}/myapp.js"></script>
+	</div>
 </body>
 
 </html>

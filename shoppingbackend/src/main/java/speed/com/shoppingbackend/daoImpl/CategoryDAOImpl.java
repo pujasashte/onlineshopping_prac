@@ -4,7 +4,10 @@ package speed.com.shoppingbackend.daoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import speed.com.shoppingbackend.dao.CategoryDAO;
 import speed.com.shoppingbackend.dto.Category;
@@ -13,6 +16,10 @@ import speed.com.shoppingbackend.dto.Category;
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	private static List<Category> categories = new ArrayList<>();
 
 	static {
@@ -22,7 +29,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		// adding first category
 		category.setId(1);
 		category.setName("Telivision");
-		category.setDescription("this is desvription");
+		category.setDescription("this is description");
 		category.setImageURL("CAT_1.png");
 
 		categories.add(category);
@@ -31,7 +38,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		category = new Category();
 		category.setId(2);
 		category.setName("Mobile");
-		category.setDescription("this is desvription");
+		category.setDescription("this is description");
 		category.setImageURL("CAT_1.png");
 
 		categories.add(category);
@@ -41,7 +48,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		category = new Category();
 		category.setId(3);
 		category.setName("Laptop");
-		category.setDescription("this is desvription");
+		category.setDescription("this is description");
 		category.setImageURL("CAT_1.png");
 
 		categories.add(category);
@@ -62,6 +69,24 @@ public class CategoryDAOImpl implements CategoryDAO {
 		if(category.getId() == id) return category;
 	}
 	return null;
+	}
+
+	@Override
+	@Transactional
+	public boolean add(Category category) {
+
+		try {
+			//add the category to the database table
+			
+			sessionFactory.getCurrentSession().persist(category);
+			
+			return true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 }

@@ -34,6 +34,12 @@
 <!-- Bootstrap litera Theme -->
 <link href="${css}/bootstrap-litera-theme.css" rel="stylesheet">
 
+ 
+<!-- Bootstrap DataTables -->
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
+
+
+
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -84,6 +90,9 @@
        
        <!--DataTables plugin -->
 		<script src="${js}/jquery.dataTables.js"></script>
+		
+ 		<!--DataTables bootstrap Script -->
+		<script src="${js}/dataTables.bootstrap4.js"></script> 
 
 		<!-- self coded javascript -->
 		<script src="${js}/myapp.js"></script>

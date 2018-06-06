@@ -1,8 +1,8 @@
 
 <div class="container">
 	<div class="row">
-		
-<!-- display slide bar -->
+
+		<!-- display slide bar -->
 		<div class="col-md-3">
 			<%@include file="./shared/sidebar.jsp"%>
 
@@ -17,9 +17,9 @@
 
 					<c:if test="${userClickAllProducts == true}">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li> 
+							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
 							<li class="breadcrumb-item active">All Products</li>
-							
+
 						</ol>
 					</c:if>
 					<c:if test="${userClickCategoryProducts == true}">
@@ -35,42 +35,20 @@
 
 
 
-	<div class="row">
-			
+			<div class="row">
 				<div class="col-xs-5">
-				
-					
-					<table id="productListTable" class="table table-striped table-borderd">
-					
-					
+					<table id="productListTable"
+						class="table table-striped table-borderd">
 						<thead>
-						
 							<tr>
 								<th>Id</th>
 								<th>Name</th>
-
 							</tr>
-						
 						</thead>
-					
-
-					
 					</table>
-				
 				</div>
-			
 			</div>
-
-
+			
 		</div>
-
-
-
 	</div>
-
-
-
-
-
-
 </div>

@@ -81,6 +81,9 @@
 		<!-- Bootstrap core JavaScript -->
 
 		<script src="${js}/bootstrap.min.js"></script>
+       
+       <!--DataTables plugin -->
+		<script src="${js}/jquery.dataTables.js"></script>
 
 		<!-- self coded javascript -->
 		<script src="${js}/myapp.js"></script>

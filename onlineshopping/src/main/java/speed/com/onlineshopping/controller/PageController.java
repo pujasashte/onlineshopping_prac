@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import speed.com.shoppingbackend.dao.CategoryDAO;
+import speed.com.shoppingbackend.dao.ProductDAO;
 import speed.com.shoppingbackend.dto.Category;
+import speed.com.shoppingbackend.dto.Product;
 
 @Controller
 public class PageController {
 
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	@RequestMapping(value = { "/", "/home", "/index" })
 	public ModelAndView index() {
@@ -85,43 +90,31 @@ public class PageController {
 		
 		
 		mv.addObject("userClickCategoryProducts", true);
+		
 		return mv;
 
 	}
-	/*
-	 * using @RequestParam
-	 * 
-	 * @RequestMapping(value="/test") public ModelAndView
-	 * test(@RequestParam("greeting")String greeting) { //pass the key and value by
-	 * url
-	 * 
-	 * public ModelAndView test(@RequestParam(value="greeting",required=false)String
-	 * greeting) {//pass the default value
-	 * 
-	 * if(greeting == null) {
-	 * 
-	 * greeting ="hello there"; }
-	 * 
-	 * ModelAndView mv = new ModelAndView("page"); mv.addObject("greeting",
-	 * greeting); return mv;
-	 * 
-	 * }
-	 * 
-	 * /*ony use anyone using @PathVariable ony use anyone
-	 * 
-	 * @RequestMapping(value="/test/{greeting}") public ModelAndView
-	 * test(@PathVariable("greeting")String greeting) { //access the only value by
-	 * url/path
-	 * 
-	 * 
-	 * 
-	 * if(greeting == null) {
-	 * 
-	 * greeting ="hello there"; }
-	 * 
-	 * ModelAndView mv = new ModelAndView("page"); mv.addObject("greeting",
-	 * greeting); return mv;
-	 * 
-	 * }
-	 */
+	/*viewing a single product*/
+	
+	@RequestMapping(value = "/show/{id}/product")
+	public ModelAndView showSingleProduct(@PathVariable int id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		Product product = productDAO.get(id);
+	
+
+		//update views count
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		//-----------------------------------
+		
+		mv.addObject("titile",product.getName());
+		mv.addObject("product",product);
+		
+		mv.addObject("userClickShowProduct", true);
+		
+		return mv;
+	}
+	
 }

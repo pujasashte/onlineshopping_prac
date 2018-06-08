@@ -8,15 +8,16 @@
       
 
      
-  <div class="container footer">
+ <!--  <div class="container footer"> -->
         <!-- Footer -->
         <footer>
         <div class="col-lg-12">
             <div class="row py-5 bg-dark">
                 
-                    <p class="m-0 text-center text-black">Copyright &copy; Online Shopping 2017 - Designed and Developed By Khozema Nullwala</p>
+               <p class="s text-center text-black">Copyright &copy; Online Shopping 2017 - Designed and Developed By Khozema Nullwala</p>
+         
                 </div>
             </div>
         </footer>
 
-    </div>
+  <!--   </div> -->
